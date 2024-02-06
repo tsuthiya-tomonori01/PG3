@@ -1,31 +1,32 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
+#include "Template.h"
 
-template <typename Type>
+template<typename Type>
 
-Type Min(Type a, Type b) {
-	if (a < b)
-	{
-		return static_cast<Type>(a);
+class Template {
+
+public:
+	Type a;
+	Type b;
+
+	Type Template(Type a, Type b) : a(a), b(b){};
+
+	Type Min(Type a, Type b) {
+
+		if (a < b)
+		{
+			return static_cast<Type>(a);
+		} 
+		else 
+		{
+			return static_cast<Type>(b);
+		}
 	}
-	else
-	{
-		return static_cast<Type>(b);
-	}
-}
-
-//‚±‚±‚©‚çcharŒ^‚Ìê‡‚ÌminŠÖ”‚ğ‹LqA‚»‚Ìê‡ŠÖ”ƒeƒ“ƒvƒŒ[ƒg‚ÌƒI[ƒo[ƒ‰ƒCƒh‚ğg‚¤‚Æ‚æ‚¢
-template <>
-char Min(char a, char b)
-{
-	return printf("”šˆÈŠO‚Í‘ã“ü‚Í‚Å‚«‚Ü‚¹‚ñ");
-}
-
+};
 int main()
 {
-	printf("%d\n", Min<int>(80, 90));
-	printf("%f\n", Min<float>(70.0f, 50.0f));
-	printf("%f\n", Min<double>(80, 90));
-	Min<char>('a', 'b');
+	Template<int> a();
+	Template<float> b();
 
 	return 0;
 }
