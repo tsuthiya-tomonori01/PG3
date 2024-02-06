@@ -2,8 +2,8 @@
 class enemy
 {
 private:
-	enum class Phase {
-		approach,
+	enum class Phase { 
+		approach, 
 		shot,
 		leave
 	};
@@ -21,7 +21,7 @@ private:
 
 private:
 
-	Phase phase_ = Phase::approach;
+	Phase phase_ = Phase::approach; 
 
 	static void (enemy::*spPhaseTable[])();
 };

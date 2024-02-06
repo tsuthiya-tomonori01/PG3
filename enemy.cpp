@@ -13,17 +13,17 @@ void enemy::Update() {
 }
 
 void enemy::Approach() {
-
+	
 	printf("Ú‹ß\n");
 
-	enemy::Shot();
+	phase_ = Phase::shot;
 }
 
 void enemy::Shot() {
 
 	printf("ËŒ‚\n");
 
-	enemy::Leave();
+	phase_ = Phase::leave; 
 }
 
 void enemy::Leave() {

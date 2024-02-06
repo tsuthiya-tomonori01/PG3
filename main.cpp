@@ -4,7 +4,10 @@ int main() {
 
 	enemy* enemy_ = new enemy;
 
-	enemy_->Update();
+	for (int i = 0; i < 3; i++) {
+
+		enemy_->Update();
+	}
 
 	return 0; 
 
