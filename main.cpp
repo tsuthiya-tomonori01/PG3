@@ -1,31 +1,32 @@
 #include <stdio.h>
-
-template <typename Type>
-
-Type Min(Type a, Type b) {
-	if (a < b)
-	{
-		return static_cast<Type>(a);
-	}
-	else
-	{
-		return static_cast<Type>(b);
-	}
-}
-
-//ここからchar型の場合のmin関数を記述、その場合関数テンプレートのオーバーライドを使うとよい
-template <>
-char Min(char a, char b)
-{
-	return printf("数字以外は代入はできません");
-}
+#include "IShape.h"
+#include "Circle.h"
+#include "Rectangle.h"
 
 int main()
 {
-	printf("%d\n", Min<int>(80, 90));
-	printf("%f\n", Min<float>(70.0f, 50.0f));
-	printf("%f\n", Min<double>(80, 90));
-	Min<char>('a', 'b');
+	IShape* iShape_[2];
+
+	for (int i = 0; i < 2; i++) {
+		if (i < 1) 
+		{
+			iShape_[i] = new Circle();
+		} 
+		else 
+		{
+			iShape_[i] = new Rectangle;
+		}
+	}
+
+	for (int i = 0; i < 2; i++) {
+		iShape_[i]->Size();
+	}
+	for (int i = 0; i < 2; i++) {
+		iShape_[i]->Draw();
+	}
+	for (int i = 0; i < 2; i++) {
+		delete iShape_[i];
+	}
 
 	return 0;
 }
